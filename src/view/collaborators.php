@@ -1,36 +1,31 @@
 <?php
-    // global $pdo;
-    // session_start();
-    // $id = $_SESSION['id_usuario'];
-    // echo $id;
   require_once '../model/crud.class.php';
   require_once '../controller/connection.php';
 
   if(isset($_POST['save']))
   {
-    $socialReason = filter_input(INPUT_POST, 'socialReason');
-    $cnpj = filter_input(INPUT_POST, 'cnpj');
+    $completeName = filter_input(INPUT_POST, 'completeName');
     $phone = filter_input(INPUT_POST, 'phone');
-    $location = filter_input(INPUT_POST, 'location');
     $email = filter_input(INPUT_POST, 'email');
+    $birthDate = filter_input(INPUT_POST, 'birthDate');
     // $id = $_SESSION['id_usuario'];
-    $alreadyExistCnpj = $pdo->prepare("SELECT * FROM company WHERE cnpj = '$cnpj'");
-    $alreadyExistCnpj->execute();
+	$alreadyExistCollaborator = $pdo->prepare("SELECT * FROM collaborator WHERE email = '$email'");
+	$alreadyExistCollaborator->execute();
 
-	if($alreadyExistCnpj->rowCount() > 0){
-		echo "<script>alert('Empresa Já Existente!')</script>";
-	}
+  if($alreadyExistCollaborator->rowCount() > 0){
+    echo "<script>alert('Colaborador Já Existente!')</script>";
+  }
   else
-	$save = $pdo->prepare("INSERT INTO company(socialReason, cnpj, phone, email, location) VALUES('$socialReason', '$cnpj', '$phone', '$email', '$location')");
-	$save->execute();
-	  if($save->rowCount()>0)
+	$resgisterCollaborator = $pdo->prepare("INSERT INTO collaborator(completeName, phone, email, birthDate) VALUES('$completeName', '$phone', '$email', '$birthDate')");
+	$resgisterCollaborator->execute();
+	  if($resgisterCollaborator->rowCount()>0)
 	  {
-		 echo "<script>alert('Empresa Cadastrada')</script>";
-	   }else
-	   {
-		 echo "<script>alert('Empresa não Cadastrada! TENTE NOVAMENTE.')</script>";
+		 echo "<script>alert('Colaborador Cadastrado')</script>";
 	   }
-     
+	   else
+	   {
+		 echo "<script>alert('Colaborador não Cadastrado! TENTE NOVAMENTE.')</script>";
+	   }
   }
 ?>
 <!DOCTYPE html>
@@ -41,7 +36,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="assets/frame/css/bootstrap.css">
   <link rel="stylesheet" href="assets/frame/js/bootstrap.js">
-  <title>Nova Empresa</title>
+  <title>Novo Colaborador</title>
   <style>
     a
     {
@@ -106,38 +101,50 @@
             <div class="card">
               <div class="card-header bg-transparent ">
               <div class="table-responsive col-md-12 align-center">
-              <h3 class="text-center">Nova Empresa<br>
+              <h3 class="text-center">Novo Colaborador<br>
               <img src="assets/svg/new.svg" class="text-center" width="300" height="300" alt="">
               </h3>
              
                 <div class="container">
                   <form action="" method="post" class="form-control">
                   <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Razão Social</label>
-                      <input type="text" name="socialReason" class="form-control" id="exampleFormControlInput1" placeholder="Ex.: Ajudar pessoas" required>
-                    </div>
-
-                    <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">CNPJ</label>
-                      <input type="text" name="cnpj" class="form-control" id="exampleFormControlInput1" placeholder="Ex.: 00-000-0000" required>
+                    <label for="exampleFormControlInput1" class="form-label">Nome Completo</label>
+                      <input type="text" name="completeName" class="form-control" id="exampleFormControlInput1" placeholder="Ex.: Luís Caputo" required>
                     </div>
 
                     <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Telefone</label>
-                      <input type="number" name="phone" class="form-control" id="exampleFormControlInput1" placeholder="Ex.: 99-999-9999" required>
+                      <input type="number" name="phone" class="form-control" id="exampleFormControlInput1" placeholder="Ex.: 99-334-4435" required>
                     </div>
+
                     <div class="mb-3">
                       <label for="exampleFormControlInput1" class="form-label">Email</label>
                       <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="aaa@aa.com" name="email">
                     </div>
 
                     <div class="mb-3">
-                      <label for="exampleFormControlInput1" class="form-label">Endereço</label>
-                      <textarea name="location" id="" cols="30" rows="10" class="form-control" placeholder="rua 21. Av. vjss" required></textarea>
+                      <label for="exampleFormControlInput1" class="form-label">Data de Nascimento</label>
+                      <input type="date" class="form-control" id="exampleFormControlInput1" placeholder="20/04/2002" name="birthDate">
+                    </div>
+                    <div class="mb-3">
+                      <label for="" class="">              
+                        <select class="form-select" name="" aria-label="Default select example">
+                          <option selected>Associe ele a uma Empresar</option>
+                          <?php
+                            $p = $pdo->prepare("SELECT * FROM company");
+                            $p->execute();
+                            while($x = $p->fetch(PDO::FETCH_ASSOC))
+                            {  
+                          ?>
+                            <option value="<?php echo $x['id']?>"><?php echo $x['socialReason']?></option>
+                          <?php
+                            }
+                          ?>
+                          </select>
                     </div>
 
                     <div class="mb-3">
-                        <button type="submit" name="save" class="btn btn-success form-control">Gravar Empresa</button>
+                        <button type="submit" name="save" class="btn btn-success form-control">Gravar Colaborador</button>
                     </div>
                   </form>
                 </div>  

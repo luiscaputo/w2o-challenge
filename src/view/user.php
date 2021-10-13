@@ -1,10 +1,4 @@
-<?php
-    // global $pdo;
-    // session_start();
-    // $id = $_SESSION['id_usuario'];
-    // echo $id;
 
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="assets/frame/css/bootstrap.css">
   <link rel="stylesheet" href="assets/frame/js/bootstrap.js">
-  <title>Agenda</title>
+  <title>Todas Empresas</title>
   <style>
     a
     {
@@ -43,7 +37,7 @@
                             <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Cadastrar Empresa</span> </a>
                     </li>
                     <li>
-                        <a href="new" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                        <a href="collaborators" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                             <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Cadastrar Colaborador</span> </a>
                     </li>
                     <li>
