@@ -1,8 +1,4 @@
 <?php
-    // global $pdo;
-    // session_start();
-    // $id = $_SESSION['id_usuario'];
-    // echo $id;
   require_once '../model/crud.class.php';
   require_once '../controller/connection.php';
 

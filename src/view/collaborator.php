@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="assets/frame/css/bootstrap.css">
   <link rel="stylesheet" href="assets/frame/js/bootstrap.js">
-  <title>Todas Empresas</title>
+  <title>Todas Colaboradores</title>
   <style>
     a
     {
@@ -47,11 +47,11 @@
                     </li>
                     <li>
                         <a href="review" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Rever Empresa</span></a>
+                            <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Rever Actividades</span></a>
                     </li>
                     <li>
                         <a href="upgrade" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
-                            <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Actualizar Empresa</span></a>
+                            <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Actualizar Actividade</span></a>
                     </li>
                     <li>
                         <a href="profile" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
@@ -84,14 +84,14 @@
             <div class="card">
               <div class="card-header bg-transparent ">
               <div class="table-responsive col-md-12 align-center">
-              <h3 class="text-center">Todas Empresas<br>
+              <h3 class="text-center">Todos Colaboradores<br>
                 <img src="assets/svg/all.svg" width="300" height="300" alt="">
               </h3>
               <?php
                 require_once '../controller/connection.php';
                   global $pdo;
                   // $id = $_SESSION['id_usuario'];
-                  $sql = $pdo->prepare("SELECT * from company");
+                  $sql = $pdo->prepare("SELECT * from collaborator");
                   $sql->execute();
                   if($sql->rowCount() > 0)
                   {
@@ -101,11 +101,10 @@
                       <thead>
                           <tr>
                             <th scope="col" class="sort" data-sort="">ID</th>
-                            <th scope="col" class="sort" data-sort="">Razão Social</th>
-                            <th scope="col" class="sort" data-sort=""x>CNPJ</th>
+                            <th scope="col" class="sort" data-sort="">Nome Completo</th>
                             <th scope="col" class="sort" data-sort="">Telefone</th>
                             <th scope="col" class="sort" data-sort="">Email</th>
-                            <th scope="col" class="sort" data-sort="">Endereço</th>
+                            <th scope="col" class="sort" data-sort="">Data de Nascimento</th>
                             <th scope="col" class="sort" data-sort="">Data de Registro</th>
                             <th scope="col">Última Atualização</th>
                           </tr>
@@ -117,11 +116,10 @@
                     echo '
                         <tr name="f" scope="row align-items-justify">
                             <td>'. $all['id'].'</td>
-                            <td>'. $all['socialReason'].'</td>
-                            <td>'. $all['cnpj'].'</td>
+                            <td>'. $all['completeName'].'</td>
                             <td>'. $all['phone'].'</td>
                             <td>'. $all['email'].'</td>
-                            <td>'. $all['location'].'</td>
+                            <td>'. $all['birthDate'].'</td>
                             <td>'. $all['createdAt'].'</td>
                             <td>'. $all['updatedAt'].'</td>
                         </tr>

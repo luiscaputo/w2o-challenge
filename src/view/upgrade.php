@@ -3,11 +3,11 @@
     require_once '../controller/connection.php';
   if(isset($_POST['save']))
   {
-    $id = filter_input(INPUT_POST, 'idDelete');
+    $id = filter_input(INPUT_POST, 'companyUpdate');
     $campo = filter_input(INPUT_POST, 'campo');
     $valor = filter_input(INPUT_POST, 'date_update');
-    
-    $a = $pdo->prepare("UPDATE agend set $campo = '$valor' where id = '$id'");
+    // Getting company id
+    $a = $pdo->prepare("UPDATE company set $campo = '$valor' where id = '$id'");
     $a->execute();
     if($a->rowCount()>0)
     {
@@ -26,7 +26,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="assets/frame/css/bootstrap.css">
   <link rel="stylesheet" href="assets/frame/js/bootstrap.js">
-  <title>Agenda</title>
+  <title>Actualizar Empresa</title>
   <style>
     a
     {
@@ -94,21 +94,20 @@
             <div class="card">
               <div class="card-header bg-transparent ">
               <div class="table-responsive col-md-12 align-center">
-              <h3 class="text-center">Actualizar Actividade <br>
+              <h3 class="text-center">Actualizar Dado de Empresa <br>
                 <img src="assets/svg/update.svg" width="300" height="300" alt="">
               
                 <form action="" method="post" class=" form-control">
                     <div class="mb-3">
-                    <select class="form-select" name="idDelete" aria-label="Default select example">
-                          <option selected>Selecione a Registro a Actualizar</option>
+                    <select class="form-select" name="companyUpdate" aria-label="Default select example">
+                          <option selected>Selecione a Empresa a Actualizar</option>
                           <?php
-                            $id = $_SESSION['id_usuario'];
-                            $p = $pdo->prepare("SELECT * FROM agend where user='$id'");
+                            $p = $pdo->prepare("SELECT * FROM company");
                             $p->execute();
                             while($x = $p->fetch(PDO::FETCH_ASSOC))
                             {  
                           ?>
-                            <option value="<?php echo $x['id']?>"><?php echo $x['name_actividade']?></option>
+                            <option value="<?php echo $x['id']?>"><?php echo $x['socialReason']?></option>
                           <?php
                             }
                           ?>
@@ -116,13 +115,12 @@
                     </div>
                     <div class="mb-3">
                       <select name="campo" class="form-control text-center " id="" required>
-                        <option value="" desable>Selecione onde vai alterar</option>
-                        <option value="name_actividade">Nome da Actividade</option>
-                        <option value="important">Importância/Prioridade</option>
-                        <option value="intervenients">Participantes</option>
-                        <option value="data_actividade">Data da Actividade</option>
-                        <option value="hour">Hora da Actividade</option>
-                        <option value="detalhes">Acrescentar os Detalhes</option> 
+                        <option value="" desable>Selecione o Dado a Actualizar</option>
+                        <option value="socialReason">Razão Social</option>
+                        <option value="cnpj">cnpj</option>
+                        <option value="phone">Telefone</option>
+                        <option value="email">Email</option>
+                        <option value="location">Endereço</option>
                       </select>
                     </div>
                     <div class="mb-3">
