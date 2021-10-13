@@ -29,7 +29,7 @@
     <div class="row flex-nowrap">
         <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
             <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-                <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                <a href="#" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                     <span class="fs-5 d-none d-sm-inline"><strong>DESAFIO W2O</strong></span>
                 </a>
                 <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start mt-3" id="menu">
@@ -85,14 +85,14 @@
             <div class="card">
               <div class="card-header bg-transparent ">
               <div class="table-responsive col-md-12 align-center">
-              <h3 class="text-center">Minhas Actividades <br>
+              <h3 class="text-center">Todas Empresas<br>
                 <img src="assets/svg/all.svg" width="300" height="300" alt="">
               </h3>
               <?php
                 require_once '../controller/connection.php';
                   global $pdo;
-                  $id = $_SESSION['id_usuario'];
-                  $sql = $pdo->prepare("SELECT * from agend WHERE user = '$id'");
+                  // $id = $_SESSION['id_usuario'];
+                  $sql = $pdo->prepare("SELECT * from company");
                   $sql->execute();
                   if($sql->rowCount() > 0)
                   {
@@ -102,13 +102,13 @@
                       <thead>
                           <tr>
                             <th scope="col" class="sort" data-sort="">ID</th>
-                            <th scope="col" class="sort" data-sort="">Actividade</th>
-                            <th scope="col" class="sort" data-sort=""x>Importância</th>
-                            <th scope="col" class="sort" data-sort="">Intervenientes</th>
-                            <th scope="col" class="sort" data-sort="">Data da Actividade</th>
-                            <th scope="col" class="sort" data-sort="">Hora da Actividade</th>
-                            <th scope="col" class="sort" data-sort="">Detalhes</th>
-                            <th scope="col">Data de Maracação</th>
+                            <th scope="col" class="sort" data-sort="">Razão Social</th>
+                            <th scope="col" class="sort" data-sort=""x>CNPJ</th>
+                            <th scope="col" class="sort" data-sort="">Telefone</th>
+                            <th scope="col" class="sort" data-sort="">Email</th>
+                            <th scope="col" class="sort" data-sort="">Endereço</th>
+                            <th scope="col" class="sort" data-sort="">Data de Registro</th>
+                            <th scope="col">Última Atualização</th>
                           </tr>
                       </thead>
                       <tbody>
@@ -118,36 +118,36 @@
                     echo '
                         <tr name="f" scope="row align-items-justify">
                             <td>'. $all['id'].'</td>
-                            <td>'. $all['name_actividade'].'</td>
-                            <td>'. $all['important'].'</td>
-                            <td>'. $all['intervenients'].'</td>
-                            <td>'. $all['data_actividade'].'</td>
-                            <td>'. $all['hour'].'</td>
-                            <td>'. $all['detalhes'].'</td>
-                            <td>'. $all['created_at'].'</td>
+                            <td>'. $all['socialReason'].'</td>
+                            <td>'. $all['cnpj'].'</td>
+                            <td>'. $all['phone'].'</td>
+                            <td>'. $all['email'].'</td>
+                            <td>'. $all['location'].'</td>
+                            <td>'. $all['createdAt'].'</td>
+                            <td>'. $all['updatedAt'].'</td>
                         </tr>
                     ';
                     //echo "ID". $profiles['id']."<br>";
                     //echo "Nome". $profiles['name']."<br>";DELETE FROM `talk_with_us` WHERE `talk_with_us`.`id` = 10
                   }
                 
-                  $row = $sql->fetch();
-                  $id = $row['id'];
-                  if(isset($_POST['Del']))
-                  {
-                    global $pdo;
-                    global $xDel;
-                    $sql = $pdo->prepare("DELETE FROM talk_with_us WHERE id = '$id'");
-                    $sql->execute();
-                    if($sql == true)
-                    {
-                      echo "<script>alert('Apagou')</script>". $id;
-                    }
-                    else
-                    {
-                      echo "<script>alert('N')</script>";
-                    }
-                  }
+                  // $row = $sql->fetch();
+                  // $id = $row['id'];
+                  // if(isset($_POST['Del']))
+                  // {
+                    // global $pdo;
+                    // global $xDel;
+                    // $sql = $pdo->prepare("DELETE FROM talk_with_us WHERE id = '$id'");
+                    // $sql->execute();
+                    // if($sql == true)
+                    // {
+                    //   echo "<script>alert('Apagou')</script>". $id;
+                    // }
+                    // else
+                    // {
+                    //   echo "<script>alert('N')</script>";
+                    // }
+                  //}
                   echo '
                   </tbody>
                   </table>
@@ -161,11 +161,12 @@
           </div>
        </div>
     </div>
-    <br><br><br>
-  </div>
- 
-        </div>
+      <br>
+      <br>
+      <br>
     </div>
+  </div>
+</div>
 </div>
 <script src="https://unpkg.com/ionicons@5.5.1/dist/ionicons.js"></script>
 </body>
