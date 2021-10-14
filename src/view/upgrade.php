@@ -117,7 +117,6 @@
                       <select name="campo" class="form-control text-center " id="" required>
                         <option value="" desable>Selecione o Dado a Actualizar</option>
                         <option value="socialReason">Razão Social</option>
-                        <option value="cnpj">cnpj</option>
                         <option value="phone">Telefone</option>
                         <option value="email">Email</option>
                         <option value="location">Endereço</option>

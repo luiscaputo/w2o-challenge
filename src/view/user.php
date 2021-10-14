@@ -9,12 +9,21 @@
   <link rel="stylesheet" href="assets/frame/js/bootstrap.js">
   <title>Todas Empresas</title>
   <style>
-    a
-    {
+    a{
       color: white;
+      text-decoration: none;
     }
     a:hover{
-      color: white;
+      color: black;
+      background-color: white;
+      border: 1px;
+    }
+    li:hover{
+      background-color: white;
+      border-radius: 8px;
+      width: 100%;
+      height: auto;
+      transition: 2s;
     }
   </style>
 </head>
@@ -22,44 +31,53 @@
 <div class="container-fluid">
     <div class="row flex-nowrap">
         <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
-            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-                <a href="#" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                    <span class="fs-5 d-none d-sm-inline"><strong>DESAFIO W2O</strong></span>
-                </a>
+            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100"><br>
+                  <span class="fs-5 d-none d-sm-inline"><strong>W2O - CHALLENGE</strong></span><br>
                 <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start mt-3" id="menu">
                     <li class="nav-item">
                         <a href="user" class="nav-link align-middle px-0">
-                          <ion-icon name="calendar-number-outline"></ion-icon> <span class="ms-1 d-none d-sm-inline">Todas Empresas</span>
+                          <strong class="ms-1 d-none d-sm-inline">Todas Empresas</strong>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="collaborator" class="nav-link align-middle px-0">
-                          <ion-icon name="calendar-number-outline"></ion-icon> <span class="ms-1 d-none d-sm-inline">Todos Colaboradores</span>
+                           <strong class="ms-1 d-none d-sm-inline">Todos Colaboradores</strong>
                         </a>
                     </li>
                     <li>
-                        <a href="new" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Nova Empresa</span> </a>
+                        <a href="new" data-bs-toggle="collapse" class="nav-link align-middle px-0 ">
+                          <strong class="ms-1 d-none d-sm-inline">Nova Empresa</strong> 
+                        </a>
                     </li>
                     <li>
                         <a href="collaborators" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Novo Colaborador</span> </a>
-                    </li>
-                    <li>
-                        <a href="review" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Rever Empresa</span></a>
+                          <strong class="ms-1 d-none d-sm-inline">Novo Colaborador</strong> 
+                        </a>
                     </li>
                     <li>
                         <a href="upgrade" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
-                            <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Actualizar Empresa</span></a>
+                          <strong class="ms-1 d-none d-sm-inline">Associar Um Colaborador a Uma Empresa</strong>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="review" class="nav-link px-0 align-middle">
+                          <strong class="ms-1 d-none d-sm-inline">Rever Empresa</strong>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="upgrade" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
+                          <strong class="ms-1 d-none d-sm-inline">Actualizar Empresa</strong>
+                        </a>
                     </li>
                     <li>
                         <a href="profile" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Meu Perfil</span> </a>
+                          <strong class="ms-1 d-none d-sm-inline">Meu Perfil</strong> 
+                        </a>
                     </li>
                     <li>
                         <a href="configurations" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Configurações</span> </a>
+                          <strong class="ms-1 d-none d-sm-inline">Configurações</strong> 
+                        </a>
                     </li>
                 </ul>
                 <hr>
@@ -119,7 +137,7 @@
                             <td>'. $all['id'].'</td>
                             <td>'. $all['socialReason'].'</td>
                             <td>'. $all['cnpj'].'</td>
-                            <td>'. $all['phone'].'</td>
+                            <td><a href=`https://api.whatsapp.com/send?phone={$all["phone"]}` style="color: black;">'. $all['phone'].'</a></td>
                             <td>'. $all['email'].'</td>
                             <td>'. $all['location'].'</td>
                             <td>'. $all['createdAt'].'</td>

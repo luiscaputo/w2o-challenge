@@ -120,7 +120,7 @@
 
                     <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Telefone</label>
-                      <input type="number" name="phone" class="form-control" id="exampleFormControlInput1" placeholder="Ex.: 99-999-9999" required>
+                      <input type="number" name="phone" class="form-control" id="exampleFormControlInput1" placeholder="Ex.: +244 999-999-999" required>
                     </div>
                     <div class="mb-3">
                       <label for="exampleFormControlInput1" class="form-label">Email</label>
