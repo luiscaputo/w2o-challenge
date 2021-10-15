@@ -19,7 +19,7 @@
             $_SESSION['id_usuario'] = $array['id'];
             $us = $_SESSION['id_usuario'];
             global $us;
-            header('location: http://localhost/desafioW2O/w2o-challenge/src/view/user');
+            header('location: http://localhost/desafioW2O/w2o-challenge/src/view/listCompanys');
           }
       }else
       {

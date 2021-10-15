@@ -1,7 +1,7 @@
 <?php
     require_once 'src/controller/connection.php';
-    require_once 'src/model/create_account.class.php';
-    require_once 'src/model/login.class.php';
+    require_once 'src/controller/create_account.class.php';
+    require_once 'src/controller/login.class.php';
 
     #pegando os campos
     if(isset($_POST['create']))
