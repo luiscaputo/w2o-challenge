@@ -29,7 +29,7 @@
               <div class="card-header bg-transparent ">
               <div class="table-responsive col-md-12 align-center">
               <h3 class="text-center">Actualizar Dado de Empresa <br>
-                <img src="assets/svg/update.svg" width="300" height="300" alt="">
+                <img src="assets/svg/update.gif" width="300" height="300" alt="">
                 <form action="" method="post" class=" form-control">
                     <div class="mb-3">
                     <select class="form-select" name="companyUpdate" aria-label="Default select example">

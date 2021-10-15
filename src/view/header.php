@@ -38,7 +38,7 @@
                 <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start mt-3" id="menu">
                     <li class="nav-item">
                         <a href="listCompanys" class="nav-link align-middle px-0">
-                          <strong class="ms-1 d-none d-sm-inline">Todas Empresas</strong>
+                          <ion-icon name="list-outline"></ion-icon><strong class="ms-1 d-none d-sm-inline">Todas Empresas</strong>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -74,11 +74,6 @@
                     <li>
                         <a href="profile" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                           <strong class="ms-1 d-none d-sm-inline">Meu Perfil</strong> 
-                        </a>
-                    </li>
-                    <li>
-                        <a href="configurations" class="nav-link px-0 align-middle">
-                          <strong class="ms-1 d-none d-sm-inline">Configurações</strong> 
                         </a>
                     </li>
                 </ul>

@@ -1,5 +1,5 @@
 <?php
-  require_once '../model/crud.class.php';
+  require_once '../controller/crud.class.php';
   require_once '../controller/connection.php';
 	
 
@@ -42,7 +42,7 @@
 					<div class="card-header bg-transparent ">
 					<div class="table-responsive col-md-12 align-center">
 					<h3 class="text-center">Nova Empresa<br>
-					<img src="assets/svg/new.svg" class="text-center" width="300" height="300" alt="">
+					<img src="assets/svg/gifImage.gif" class="text-center" width="300" height="300" alt="">
 					</h3>
 					
 					<div class="container">

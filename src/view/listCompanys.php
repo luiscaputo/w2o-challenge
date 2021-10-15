@@ -9,7 +9,8 @@
               <div class="card-header bg-transparent ">
               <div class="table-responsive col-md-12 align-center">
               <h3 class="text-center">Todas Empresas<br>
-                <img src="assets/svg/all.svg" width="300" height="300" alt="">
+                <img src="assets/svg/list.gif" width="300" height="300" alt="">
+                
               </h3>
               <?php
                 require_once '../controller/connection.php';
