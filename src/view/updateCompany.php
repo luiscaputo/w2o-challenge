@@ -56,7 +56,6 @@
                       </select>
                     </div>
                     <div class="mb-3">
-                      <input type="text" name="date_update" id="" class="form-control " placeholder="de s para v"><br>
                       <button type="submit" name="save" class="btn btn-success w-25 p-1">Salvar alteração</button><br>
                     </div>
                 </form>
