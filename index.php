@@ -92,10 +92,7 @@
           <a style="color: aliceblue;" class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"></a>
         </li>
       </ul>
-      <!-- <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Escreva aqui" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Pesquisar</button>
-      </form> -->
+
     </div>
   </div>
 </nav>
@@ -173,8 +170,8 @@
 <h5 id="c" class="text-center">Criar Sua Conta Aqui</h5>
 <p class="text-center">Crie uma conta para poder logar e avaliar meu desafio! <br>
 	att: se não quiser deixar seus dados aqui pode logar com as seguintes credenciais: <br>
-	xxxx xxxx xxxx <br>
-	xxxx xxxx xxxx  
+	<b>Email: </b>luiscaputo15@gmail.com<br>
+  <b>pass: </b>123456<br>
 </p>
 <br>
   <div class="row">
@@ -247,14 +244,7 @@
         ><i class="fab fa-github"></i
       ></a>
     </section>
-    <!-- Section: Social media -->
 
-    <!-- Section: Form -->
- 
-        
-    <!-- Section: Form -->
-
-    <!-- Section: Text --> 
   </div>
   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
     © 2021 Copyright - Desafio FullStack:
